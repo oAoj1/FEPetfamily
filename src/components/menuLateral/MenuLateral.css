@@ -40,6 +40,10 @@
     margin-top: -15rem;
 }
 
+.servicosSelecionado{
+    background-color: red;
+}
+
 .opcoes li button{
     width: 90%;
     display: flex;
