@@ -1,0 +1,86 @@
+.menuLateral{
+    width: 20%;
+    height: 100%;
+
+    padding: 0.5rem;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: #F97F2A;
+
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tituloMenuLateral{
+    display: flex;
+    align-items: center;
+}
+
+.tituloMenuLateral h2{
+    font-weight: 200;
+    font-size: 25px;
+    color: #fff;
+}
+
+.tituloMenuLateral svg{
+    width: 30px;
+    height: 30px;
+    color: #fff;
+
+    margin-left: 0.25rem;
+}
+
+.opcoes{
+    margin-top: -15rem;
+}
+
+.opcoes li button{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.15s;
+    padding:0.5rem;
+    border-radius: 50px;
+}
+
+.opcoes li button h3{
+    text-transform: capitalize;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.opcoes li button svg{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.opcoes li button:hover{
+    background-color: #af4f0b;
+}
+
+.sair{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sair svg{
+    margin-right: 0.5rem
+}
+
+.sair p{
+    font-size: 25px;
+    font-weight: 300;
+}
