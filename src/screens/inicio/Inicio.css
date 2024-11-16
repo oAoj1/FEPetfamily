@@ -1,0 +1,78 @@
+.inicio{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tituloInicio{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.tituloInicio h1{
+    font-size: 3em;
+    font-weight: 300;
+}
+
+.tituloInicio h2{
+    font-size: 1em;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.btnContainer{
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+}
+
+.btnContainer button{
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.2));
+    transition: 0.1s;
+}
+
+.btnContainer button{
+    background-color: #e2e4fa;
+}
+
+.btnContainer button:hover{
+    background-color: #A8B0FF;
+    transform: scale(1.05);
+}
+
+.btnContainer button:active{
+    background-color: #485bff;
+    transform: 0.01ms;
+    color: #fff;
+    transform: scale(0.99);
+}
+
+.btnContainer button p{
+    text-transform: capitalize;
+    font-size: 1.75em;
+    font-weight: 300;
+}
+
+.btnContainer button svg{
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width:768px){
+    .btnContainer{
+        flex-direction: column;
+    }
+
+    .btnContainer button{
+        margin: 1rem 0;
+    }
+}

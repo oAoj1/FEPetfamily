@@ -1,0 +1,15 @@
+.agendamentos{
+    width: 100vw;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 20%;
+}
+
+.tituloAgendamentos{
+    padding: 0.5rem;
+}
+
+.tituloAgendamentos h1{
+    font-weight: 300;
+    font-size: 80px;
+}

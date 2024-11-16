@@ -1,72 +1,60 @@
 import './MenuLateral.css'
 
-import { MdPets, MdPeople  } from "react-icons/md";
-import { FaHome, FaCalendarAlt, FaTools, FaStar } from "react-icons/fa";
-import { FaArrowLeftLong } from "react-icons/fa6";
-import { IoIosChatbubbles, IoIosDocument , IoIosSettings  } from "react-icons/io";
+import { MdOutlinePets } from "react-icons/md";
 
-import { useState } from 'react';
+import { FaHome, FaCalendarAlt, FaTools, FaArrowLeft } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export default function MenuLateral(){
 
     const opcoes = [
         {
-            opcao:'inicio',
-            icone:<FaHome/>
+            texto:'início',
+            icon:<FaHome/>,
+            link:''
         },
         {
-            opcao:'agendamentos',
-            icone:<FaCalendarAlt/>
+            texto:'agendamentos',
+            icon:<FaCalendarAlt/>,
+            link:'agendamentos'
         },
         {
-            opcao:'funcionários',
-            icone:<MdPeople/>
-        },
-        {
-            opcao:'serviços',
-            icone:<FaTools/>
-        },
-        {
-            opcao:'mensagens',
-            icone:<IoIosChatbubbles/>
-        },
-        {
-            opcao:'interações',
-            icone:<FaStar/>
-        },
-        {
-            opcao:'Documentos',
-            icone:<IoIosDocument/>
-        },
-        {
-            opcao:'configurações',
-            icone:<IoIosSettings/>
-        },
-
-    ] 
+            texto:'serviços',
+            icon:<FaTools/>,
+            link:'servicos'
+        }
+    ]
 
     return(
         <div className="menuLateral">
 
-            <div className="tituloMenuLateral">
-                <h2>PetFamily</h2>
-                <MdPets/>
-            </div>
+            <Link to='/hospedagem' style={{textDecoration:'none'}}>
+                <div className="tituloMenuLateral">
+                    <h2>PetFamily</h2>
+                    <MdOutlinePets/>
+                </div>
+            </Link>
 
             <ul className="opcoes">
                 {opcoes.map(opcoes => (
-                    <li key={opcoes.opcao}>
-                        <button>
-                            <span>{opcoes.icone}</span>
-                            <h3>{opcoes.opcao}</h3>
-                        </button>
+                    <li key={opcoes}>
+                        <Link to={`/hospedagem/${opcoes.link}`}>
+                            <button>
+                                {opcoes.icon}
+                                <p>{opcoes.texto}</p>
+                            </button>
+                        </Link>
                     </li>
                 ))}
             </ul>
 
             <div className="sair">
-                <FaArrowLeftLong/>
-                <p>Sair</p>
+                <Link to='/'>
+                    <button>
+                        <FaArrowLeft/>
+                        <p>Sair</p>
+                    </button>
+                </Link>
             </div>
 
         </div>
