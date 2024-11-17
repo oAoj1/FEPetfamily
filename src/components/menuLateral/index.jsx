@@ -37,7 +37,7 @@ export default function MenuLateral(){
 
             <ul className="opcoes">
                 {opcoes.map(opcoes => (
-                    <li key={opcoes}>
+                    <li key={opcoes.texto}>
                         <Link to={`/hospedagem/${opcoes.link}`}>
                             <button>
                                 {opcoes.icon}

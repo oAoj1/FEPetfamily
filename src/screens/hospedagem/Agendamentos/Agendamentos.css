@@ -1,15 +1,45 @@
-.agendamentos{
+.agendamentos {
     width: 100vw;
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
     padding-left: 20%;
 }
 
-.tituloAgendamentos{
+.tituloAgendamentos {
     padding: 0.5rem;
 }
 
-.tituloAgendamentos h1{
+.tituloAgendamentos h1 {
     font-weight: 300;
     font-size: 80px;
+}
+
+.status {
+    padding: 0.5rem;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.status li {
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 300;
+    text-transform: capitalize;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.status li:hover {
+    background-color: #F97F2A;
+    color: #fff;
+}
+
+.status li.selecionado {
+    background-color: #F97F2A;
+    color: #fff;
 }
