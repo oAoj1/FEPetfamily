@@ -42,10 +42,10 @@ export default function Agendamentos() {
                     </li>
                 ))}
             </ul>
-
-            <Contrato/>
-            <Contrato/>
-        
+            
+            <Contrato
+                status={status.descricao}
+            />
 
         </div>
     );

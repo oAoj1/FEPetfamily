@@ -2,7 +2,7 @@ import './Contrato.css'
 
 import { IoPerson } from "react-icons/io5";
 
-export default function Contrato(){
+export default function Contrato({status}){
 
     const btn = [
         {
@@ -27,6 +27,7 @@ export default function Contrato(){
             <div className="usuarioContainer">
                 <IoPerson/>
                 <h2>tutor 1 da silva</h2>
+                <span>{status}</span>
             </div>
             <div className="btnContratoContainer">
                 {btn.map(btn => (
