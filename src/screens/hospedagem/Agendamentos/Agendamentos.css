@@ -15,31 +15,18 @@
     font-size: 80px;
 }
 
-.status {
-    padding: 0.5rem;
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-}
-
-.status li {
-    margin: 0 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
+.filtrarStatus,
+.filtrarStatus option{
+    width: 35%;
+    font-size: 25px;
     font-weight: 300;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    border-radius: 50px;
+    background-color: #FBFBFF;
+    padding: 0.25rem 0.5rem;
     text-transform: capitalize;
-    border: 2px solid transparent;
-    transition: 0.2s;
-}
-
-.status li:hover {
-    background-color: #F97F2A;
-    color: #fff;
-}
-
-.status li.selecionado {
-    background-color: #F97F2A;
-    color: #fff;
+    margin: 1rem;
+    filter: drop-shadow(1px 5px 5px rgba(0,0,0,0.2));
 }

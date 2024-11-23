@@ -1,48 +1,44 @@
 import './Contrato.css'
 
+import { useState } from 'react'
+
 import { IoPerson } from "react-icons/io5";
+import { FaCalendarAlt } from "react-icons/fa";
 
-export default function Contrato({status}){
+import VerMais from './verMais'
+import Botao from '../botao'
 
-    const btn = [
-        {
-            texto:'ver mais',
-            corFundo:'#8692DE',
-            corTexto:'#fff'
-        },
-        {
-            texto:'confirmar',
-            corFundo:'#60F700',
-            corTexto:'#000'
-        },
-        {
-            texto:'cancelar',
-            corFundo:'#FF2121',
-            corTexto:'#fff'
-        }
-    ]
+export default function Contrato(){
+
+    const [isOpenVerMais, setIsOpenVerMais] = useState(false)
 
     return(
         <div className="contratoContainer">
+
             <div className="usuarioContainer">
-                <IoPerson/>
-                <h2>tutor 1 da silva</h2>
-                <span>{status}</span>
+                <div className="tutorContainer">
+                    <IoPerson/>
+                    <h2>tutor 1 da silva</h2>
+                </div>
+                <div className="datasContainer">
+                    <FaCalendarAlt />
+                    <p>25/07 - 30/07</p>
+                </div>
             </div>
+
             <div className="btnContratoContainer">
-                {btn.map(btn => (
-                    <button 
-                        key={btn} 
-                        style={{
-                            backgroundColor:btn.corFundo,
-                            color:btn.corTexto
-                        }}
-                        className='btnContrato'
-                    >
-                        {btn.texto}
-                    </button>
-                ))}
+                <Botao
+                    clicar={() => setIsOpenVerMais(true)}
+                    texto='ver mais'
+                />
             </div>
+
+            {isOpenVerMais ? 
+                <div className="overlayVerMais">
+                    <VerMais fechar={() => setIsOpenVerMais(false)}/>
+                </div>
+            : ''}
+
         </div>
     )
 }

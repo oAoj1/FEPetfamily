@@ -1,7 +1,7 @@
 .contratoContainer{
     width: 95%;
     margin:1rem auto;
-    background-color: #FAFAFF;
+    background-color: #F0FFFE;
     filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.2));
     border-radius: 40px;
     padding: 1rem;
@@ -9,7 +9,8 @@
 
 .usuarioContainer{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .usuarioContainer svg{
@@ -21,7 +22,25 @@
 .usuarioContainer h2{
     text-transform: capitalize;
     font-weight: 300;
-    font-size: 50px;
+    font-size: 40px;
+}
+
+.tutorContainer,
+.datasContainer{
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+.datasContainer svg{
+    width: 30px;
+    height: 30px;
+}
+
+.datasContainer p{
+    margin-left: 0.5rem;
+    font-size: 1.5em;
+    font-weight: 300;
 }
 
 .btnContratoContainer{
@@ -39,4 +58,12 @@
     cursor: pointer;
     font-size: 1em;
     font-weight: 300;
+}
+
+.overlayVerMais{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    z-index: 20;
 }

@@ -4,7 +4,7 @@ import Inicio from './screens/inicio'
 import Tutor from './screens/tutor'
 import Hospedagem from './screens/hospedagem'
 import Agendamentos from "./screens/hospedagem/Agendamentos"
-import Servicos from "./screens/hospedagem/Servicos"
+import ServicosHospedagem from "./screens/hospedagem/ServicosHospedagem"
 
 export default function App(){
   return(
@@ -15,7 +15,7 @@ export default function App(){
           <Route path="/tutor" element={<Tutor/>}/>
           <Route path="/hospedagem" element={<Hospedagem/>}/>
           <Route path="/hospedagem/agendamentos" element={<Agendamentos/>}/>
-          <Route path="/hospedagem/servicos" element={<Servicos/>}/>
+          <Route path="/hospedagem/servicos" element={<ServicosHospedagem/>}/>
         </Routes>
       </Router>
     </div>
