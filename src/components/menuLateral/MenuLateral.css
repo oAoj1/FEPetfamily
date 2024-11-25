@@ -13,6 +13,8 @@
     background-color: #F97F2A;
 
     padding: 0.65rem;
+
+    z-index: 1;
 }
 
 .tituloMenuLateral,

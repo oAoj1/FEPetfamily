@@ -45,14 +45,14 @@ export default function Agendamentos() {
                 </option>
 
                 {status.map(status => (
-                    <option>
+                    <option key={status.idServico} value={status.idStatus}>
                         {status.descricao}
                     </option>
                 ))}
             </select>
             
-            <Contrato/>
+            <Contrato status={filtrarStatus}/>
 
         </div>
-    );
+    )
 }

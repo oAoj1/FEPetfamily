@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { IoMdAdd } from "react-icons/io";
 
-import FormAddServico from '../../../components/form/addServico';
+import FormServico from '../../../components/form/formServico';
 import MenuLateral from '../../../components/menuLateral'
 import ItemServico from '../../../components/itemServico'
 
@@ -23,7 +23,9 @@ export default function ServicosHospedagem(){
 
             {isOpenFormAdd ? 
                 <div className="overlayServicos">
-                    <FormAddServico fechar={() => setIsOpenAddForm(false)}/>
+                    <FormServico 
+                        fechar={() => setIsOpenAddForm(false)}
+                    />
                 </div>
             : ''}
 
