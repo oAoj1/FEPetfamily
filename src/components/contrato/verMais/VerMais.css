@@ -1,13 +1,100 @@
 .header{
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
+}
+
+.header h3{
+    font-weight: 300;
+    color: #ccc;
+}
+
+.header svg{
+    width: 30px;
+    height: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.dadosWraper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
 }
 
 .overlayLerMais{
-    position: fixed;
-    background-color: rgba(0,0,0,0.5);
     width: 100%;
     height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
     top: 0;
     left: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.verMaisContainer{
+    width: 90%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 20px;
+    animation: upBox 0.35s;
+}
+
+.usuarioVerMais,
+.datasVerMais{
+    display: flex;
+    align-items: center;
+}
+
+.usuarioVerMais svg{
+    width: 40px;
+    height: 40px;
+    color: #8F8F8F;
+}
+
+.datasVerMais svg{
+    width: 30px;
+    height: 30px;
+    color: #8F8F8F;
+    margin:0.25rem;
+}
+
+.usuarioVerMais h2,
+.datasVerMais input[type='date']{
+    font-weight: 300;
+    background: transparent;
+    border: 0;
+}
+
+.usuarioVerMais h2{
+    font-size: 1.5em;
+}
+
+.datasVerMais input[type='date']{
+    font-size: 0.95em;
+    max-width: max-content;
+}
+
+.precoVerMais h3{
+    font-size: 2.25em;
+    font-weight: 300;
+}
+
+@keyframes upBox {
+    0%{
+        transform: translateY(-1px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0);
+    }
 }

@@ -1,0 +1,38 @@
+.itemPetContainer{
+    background-color: #FFD0AF;
+    padding: 0.5rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.petTitulo{
+    display: flex;
+    align-items: center;
+}
+
+.petTitulo h2{
+    font-weight: 300;
+    font-size: 2em;
+}
+
+.petTitulo svg{
+    width: 30px;
+    height: 30px;
+    color: #1C1B1F;
+}
+
+.descricaoPet p{
+    font-weight: 200;
+    margin-left: 30px;
+    font-size: 1.25em;
+}
+
+.precosServicosPet h3{
+    font-weight: 300;
+    font-size: 1.75em;
+}
+
+.precosServicosPet p{
+    font-weight: 200;
+}

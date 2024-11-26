@@ -5,79 +5,112 @@ import { useState, useEffect } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 
-import api from '../../api/api.js'
+import api from '../../api/api.js';
 
-import FormServico from '../form/formServico'
-import PopUp from '../popUp';
-
-export default function ItemServico(){
-
-    const [servicos,setServicos] = useState([])
-    const [isOpenEditForm,setIsOpenEditForm] = useState(false)
-    const [idServicoAtual, setIdServicoAtual] = useState('')
+export default function ItemServico() {
+    const [servicos, setServicos] = useState([]);
+    const [isEditing, setIsEditing] = useState(null); // Armazena o id do serviço em edição
+    const [editForm, setEditForm] = useState({
+        descricao: '',
+        preco: ''
+    });
 
     useEffect(() => {
-        async function lerServicos(){
-            const response = await api.get('/servicos')
-            const data = response.data
-
-            setServicos(data[0])
+        async function lerServicos() {
+            const response = await api.get('/servicos');
+            const data = response.data;
+            setServicos(data[0]);
         }
+        lerServicos();
+    }, []);
 
-        lerServicos()
-    },[])
+    async function salvarEdicao(idServico) {
+        try {
+            await api.put(`/servicos/${idServico}`, editForm);
+            alert('Serviço atualizado com sucesso!');
 
-    async function deletarServico(idServico){
-        const confirmar = window.confirm('Deseja deletar servico?')
-
-        if(confirmar){
-            try{
-                await api.delete(`/servicos/${idServico}`)
-                alert('Servico deletado com sucesso!')
-                location.reload()
-            }catch(error){
-                alert('Erro ao deletar servico, confira o console')
-                console.log(error)
-            }
-
+            setServicos(servicos.map(servico => 
+                servico.idServico === idServico ? { ...servico, ...editForm } : servico
+            ));
+            setIsEditing(null);
+        } catch (error) {
+            alert('Erro ao salvar as alterações, confira o console');
+            console.log(error);
         }
-
     }
 
-    return(
-        <ul className="servicosListados">
+    async function deletarServico(idServico) {
+        const confirmar = window.confirm('Deseja deletar o serviço?');
+        if (confirmar) {
+            try {
+                await api.delete(`/servicos/${idServico}`);
+                alert('Serviço deletado com sucesso!');
+                setServicos(servicos.filter(item => item.idServico !== idServico));
+            } catch (error) {
+                alert('Erro ao deletar serviço, confira o console');
+                console.log(error);
+            }
+        }
+    }
 
+    function handleEditClick(item) {
+        setIsEditing(item.idServico);
+        setEditForm({ descricao: item.descricao, preco: item.preco });
+    }
+
+    return (
+        <ul className="servicosListados">
             {servicos.map(item => (
                 <li key={item.idServico}>
-                    <div className="descricaoServico">
-                        <h2>{item.descricao}</h2>
-                        <h3>R$ {item.preco}</h3>
-                    </div>
-                    
-                    <div className="btnServico">
-                        <MdEdit 
-                            onClick={() => {
-                                setIsOpenEditForm(true)
-                                setIdServicoAtual(item.idServico)
-                            }}
-                        />
-                        <IoMdClose onClick={() => deletarServico(item.idServico)}/>
-                    </div>
-                    
-                    {isOpenEditForm && item.idServico == idServicoAtual ? 
-                        <div className="overlayServicos">
-                            <FormServico 
-                                fechar={() => setIsOpenEditForm(false)}
-                                descricaoProps={item.descricao}
-                                precoProps={item.preco}
+                    {isEditing === item.idServico ? (
+                        <div className="editServico">
+                            <input
+                                type="text"
+                                className='inputEditServico'
+                                value={editForm.descricao}
+                                onChange={(e) => setEditForm({ 
+                                    ...editForm, descricao: e.target.value 
+                                })}
                             />
-                        </div>
-                    : ''}
 
+                            <input
+                                type="number"
+                                className='inputEditServico'
+                                value={editForm.preco}
+                                onChange={(e) => setEditForm({ 
+                                    ...editForm, preco: e.target.value 
+                                })}
+                            />
+
+                            <div className="btnContainerEditServico">
+                                <button 
+                                    onClick={() => salvarEdicao(item.idServico)}
+                                    className='btnEditServico'
+                                >
+                                    Salvar
+                                </button>
+
+                                <button 
+                                    onClick={() => setIsEditing(null)}
+                                    className='btnEditServico'
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
+                            
+                        </div>
+                    ) : (
+                        <div className="descricaoServico">
+                            <h2>{item.descricao}</h2>
+                            <h3>R$ {item.preco}</h3>
+                        </div>
+                    )}
+                    <div className="btnServico">
+                        <MdEdit onClick={() => handleEditClick(item)} />
+                        <IoMdClose onClick={() => deletarServico(item.idServico)} />
+                    </div>
                 </li>
             ))}
-
-
         </ul>
-    )
+    );
 }
