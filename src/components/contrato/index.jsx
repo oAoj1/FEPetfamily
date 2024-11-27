@@ -37,7 +37,7 @@ export default function Contrato({ status }){
         if(confirmar){
             await api.put(`/contratos/${idContrato}`,
                 texto == 'aprovar' ? {idStatus:2} : 
-                texto == 'negar' ? {idStatus:6} :
+                texto == 'negar' ? {idStatus:7} :
                 texto == 'cancelar' ? {idStatus:5} : ''
             )
             .then(() => {
@@ -95,7 +95,7 @@ export default function Contrato({ status }){
                                     status == 3 ? <FaTools style={{color:'#1C1B1F'}}/> : 
                                     status == 4 ? <FaRegCircleCheck style={{color:'#84ff38'}}/> :
                                     status == 5 ?  <IoIosRemoveCircleOutline style={{color:'#8F8F8F'}}/> : 
-                                    status == 6 ? <MdBlock style={{color:'#8F8F8F'}}/> : ''} 
+                                    status == 7 ? <MdBlock style={{color:'#8F8F8F'}}/> : ''} 
                                 </div> 
                             </div>
 
