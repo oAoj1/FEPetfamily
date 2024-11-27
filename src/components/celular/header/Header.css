@@ -1,0 +1,36 @@
+.headerCelularTutor{
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    background-color: #8692DE;
+
+    border-radius: 35px;
+    padding: 1rem 0.5rem 1.5rem 0.5rem;
+}
+
+.headerCelularTutor h2{
+    margin-top: 1rem;
+    font-weight: 200;
+    font-size: 1em;
+}
+
+.headerCelularTutor svg{
+    color: #000;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.headerCelularTutor p{
+    font-weight: 300;
+    color: #ccc;
+    font-size: 0.85em;
+}

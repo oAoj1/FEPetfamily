@@ -1,79 +1,79 @@
 import './Celular.css'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { IoChatbubble } from "react-icons/io5";
-import { FaHotel, FaArrowRight } from "react-icons/fa";
+import Header from './header';
+import SeusAgendamentosComponente from './seusAgendamentosComponente'
+import HospedagensComponente from './hospedagensComponente';
 
-import MenuHamburguer from './menuHamburguer';
+import HospedagensScreen from '../../screens/tutor/hospedagensScreen';
+import SeusAgendamentosScreen from '../../screens/tutor/seusAgendamentosScreen';
+
+import api from '../../api/api.js'
 
 export default function Celular(){
 
-    const [page,setPage] = useState('')
+    const [page,setPage] = useState('inicial')
+    const [contratos, setContratos] = useState([])
+
+    useEffect(() => {
+        async function lerContratos(){
+            const response = await api.get('/contratos')
+            const data = response.data
+
+            setContratos(data[0])
+        }
+
+        lerContratos()
+    },[])
 
     return(
         <div className="celularContainer">
 
             <div className="celular">
-                
-                <div className="headerCelularTutor">
-                    <div style={{
-                        width:'100%',
-                        display:'flex',
-                        alignItems:'flex-start',
-                        justifyContent:'space-between'
-                    }}>
-                        <MenuHamburguer/>
-                        <p>PetFamily</p>
-                        <IoChatbubble/> 
-                    </div>
-                    <h2>Bem vindo Tutor</h2>
-                </div>
 
-                <div className="seusAgendamentos">
-                    <h3>Seu(s) Agendamento(s)</h3>
+                {page == 'inicial' ? 
+                    <>
+                        <Header/>
 
-                    <div className="seusAgendamentosContainer">
-                        <div className="icone">
-                            <FaHotel />
-                        </div>
+                        {contratos.length > 0 ? 
+                            <SeusAgendamentosComponente 
+                                clicar={() => setPage('seusagendamentos')}
+                            /> 
+                        : 
+                            <div style={{
+                                marginTop:'10rem'
+                            }}>
+                                <h3 
+                                    style={{
+                                        color:'#000',
+                                        fontWeight:400,
+                                        fontSize:'1.15em'
+                                    }}>
+                                        Seus agendamentos
+                                </h3>
+                                <p style={{
+                                    color:'#575656',
+                                    fontWeight:200,
+                                    fontSize:'0.75em',
+                                    marginTop:'0.5rem',
+                                    fontStyle:'italic'
+                                }}>
+                                    Faça algum agendamento
+                                </p>
+                            </div> 
+                        }
 
-                        <div className="descricao">
-                            <h2>Hotel 1</h2>
-                            <button>
-                                ver mais
-                                <FaArrowRight/>
-                            </button>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-                <div className="hospedagens">
-                    <h3>Hospedagens</h3>
-
-                    <div className="hospedagemContainer">
-                        <div className="icone">
-                            <FaHotel />
-                        </div>
-
-                        <div className="descricao">
-                            <h2>Hotel 1</h2>
-
-                            <h4>Melhores avaliadas</h4>
-                            <h3>rua tal tal 111</h3>
-
-                            <button>
-                                ver mais
-                                <FaArrowRight/>
-                            </button>
-                            
-                        </div>
-
-                    </div>
-
-                </div>
+                        <HospedagensComponente 
+                            clicar={() => setPage('hospedagens')}
+                        />
+                    </>
+            
+                : page == 'seusagendamentos' ? 
+                    <SeusAgendamentosScreen/>
+                : page == 'hospedagens' ?
+                    <HospedagensScreen/>
+                : ''}
 
             </div>
 

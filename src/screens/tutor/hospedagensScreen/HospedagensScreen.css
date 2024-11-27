@@ -1,0 +1,147 @@
+.hospedagensScreen{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.cabecalho p{
+    font-size: 0.75em;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.cabecalho svg{
+    width: 30px;
+    height: 30px;
+    color: #000;
+}
+
+.titleHospedagens h1{
+    font-size: 1.75em;
+    color: #000;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 1.75rem;
+}
+
+.hotel{
+    margin: 1rem;
+}
+
+.hotelHeader{
+    text-align: center;
+    background-color:#8692DE;
+    padding: 1rem 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.hotelHeader svg{
+    width: 50px;
+    height: 50px;
+    color: #000;
+}
+
+.hotelDescricao{
+    background-color: #43569B;
+    padding: 0.5rem;
+}
+
+.hotelDescricao h2{
+    font-weight: 300;
+    color: #fff;
+}
+
+.hotelDescricao p{
+    font-weight: 200;
+    text-transform: capitalize;
+    color:#60F700;
+}
+
+.endereco p{
+    color: #ccc;
+    margin: 0.5rem 0;
+    font-size: 0.75em;
+}
+
+.estrelas{
+    display: flex;
+    align-items: center;
+}
+
+.estrelas p{
+    font-weight: 200;
+    color: #fff;
+}
+
+.estrelas svg:nth-of-type(1){
+    margin-left: 0.25rem;
+}
+
+.quantidade p{
+    color: #fff;
+    font-size: 0.75em;
+}
+
+.btnHospedarAqui button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: 0;
+    background-color:#159800;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.listaServicos{
+    margin: 1rem 0;
+    animation: openServices 0.25s;
+}
+
+.listaServicos li{
+    background-color: #ccc;
+    margin: 0.25rem 0;
+    padding: 0.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listaServicos li h3{
+    color: #000;
+    font-weight: 300;
+    text-transform: capitalize;
+    margin-left: 0.5rem;
+}
+
+.listaServicos li h4{
+    font-size: 1.15em;
+    color: #000;
+    font-weight: 400;
+}
+
+@keyframes openServices {
+    0%{
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(2px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

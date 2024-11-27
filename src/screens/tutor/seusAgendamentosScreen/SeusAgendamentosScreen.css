@@ -1,0 +1,91 @@
+.seusAgendamentosScreen{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.cabecalho p{
+    font-size: 0.75em;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.cabecalho svg{
+    width: 30px;
+    height: 30px;
+    color: #000;
+}
+
+.titleHospedagens h1{
+    font-size: 1.75em;
+    color: #000;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 1.75rem;
+}
+
+.hotelHeader{
+    text-align: center;
+    background-color:#8692DE;
+    padding: 1rem 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.datasDescricao{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.datasDescricao span{
+    font-size: 0.75em;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.hotelHeader svg{
+    width: 30px;
+    height: 30px;
+    color: #000;
+}
+
+.hotelDescricao{
+    background-color: #43569B;
+    padding: 0.5rem;
+    border-radius: 0 0 10px 10px;
+}
+
+.hotelDescricao h2{
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.hotelDescricao p{
+    font-weight: 200;
+    text-transform: capitalize;
+    color:#60F700;
+}
+
+.titleHospedagens h1{
+    font-size: 1.75em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleHospedagens h1 span:nth-of-type(1){
+    font-size: 0.75em;
+}
+
+.titleHospedagens h1 span:nth-of-type(2){
+    font-size: 1em;
+    font-weight: 400;
+}

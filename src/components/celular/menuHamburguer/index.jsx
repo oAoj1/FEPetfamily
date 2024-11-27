@@ -16,15 +16,18 @@ export default function MenuHamburguer(){
     const options = [
         {
             text:'início',
-            icon:<FaHome/>
+            icon:<FaHome/>,
+            link:'inicial'
         },
         {
             text:'seus agendamentos',
-            icon: <FaCalendarAlt/>
+            icon: <FaCalendarAlt/>,
+            link:'seusagendamentos'
         },
         {
             text:'hospedagens',
-            icon: <FaHotel/>
+            icon: <FaHotel/>,
+            link:'hospedagens'
         }
     ]
 
@@ -49,7 +52,10 @@ export default function MenuHamburguer(){
 
                         <ul className="options">
                             {options.map(opcoes => (
-                                <li key={opcoes.text}>
+                                <li 
+                                    key={opcoes.text}
+                                    onClick={() => setPage(opcoes)}
+                                >
                                     <span>{opcoes.icon}</span>
                                     <h3>{opcoes.text}</h3>
                                 </li>
